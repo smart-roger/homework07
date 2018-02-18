@@ -24,8 +24,9 @@ int main(int argc, char** argv)
     */
 
     //  Считываем размер блока
-    if(argc<1){
-        std::cerr << "Wrong arguments count. Using: bulk <bulk_size>."<< std::endl;
+    //std::cout << argc << std::endl;
+    if(argc<2){
+        std::cerr << "Wrong arguments count. Using: bulk <bulk_size>"<< std::endl;
         return -1;
     }
     auto bulk_size(std::stoul(argv[1]));
