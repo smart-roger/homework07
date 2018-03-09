@@ -6,7 +6,7 @@ TCommandProcessor::TCommandProcessor(size_t bulkSize):
     _blockCounter(0),
     _store(bulkSize)
 {
-    //ctor
+    
 }
 
 TCommandProcessor::~TCommandProcessor()
