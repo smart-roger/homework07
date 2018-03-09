@@ -24,6 +24,8 @@ class TCommandStore
         void clear();
         //  Число команд в хранилище
         size_t size() const;
+        //  Пустой ли массив
+        bool empty()    const;
 
     protected:
 

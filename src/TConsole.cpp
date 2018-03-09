@@ -11,22 +11,24 @@ TConsole::~TConsole()
 }
 
 void TConsole::run(){
-    while (_input.good()){
-                std::string command;
-                std::getline(_input, command);
+
+        std::string command;
+
+        while(std::getline(_input, command)){
             try{
                 //  В обработчиках могут быть проблемы. На всякий сдучай обернём
                 std::for_each(_observers.begin(), _observers.end(),[command](auto ptrProcessor){
                         ptrProcessor->parseCommand(command);
                         }
                 );
+                //command.clear();
             }catch(std::exception e){
                 std::cerr << "Exception in observer! " << e.what() << std::endl;
             }
             catch(...){
                 std::cerr << "Unknown exception in observer! " << std::endl;
             }
-    }
+        };
 }
 
 void TConsole::addObserver(ptrObserver newObserver){

@@ -7,21 +7,13 @@
 
 int main(int argc, char** argv)
 {
-    /*
+
     std::stringstream sstream;
-    sstream << "cmd1" <<std::endl;
-    sstream << "cmd2" <<std::endl;
-    sstream << "cmd3" <<std::endl;
-    sstream << "cmd4" <<std::endl;
-    sstream << "cmd5" <<std::endl;
-    sstream << "{" <<std::endl;
-    sstream << "cmd11" <<std::endl;
-    sstream << "cmd12" <<std::endl;
-    sstream << "cmd13" <<std::endl;
-    sstream << "cmd14" <<std::endl;
-    sstream << "cmd15" <<std::endl;
-    sstream << "}" <<std::endl;
-    */
+    sstream << "" <<std::endl;
+    sstream << "0" <<std::endl;
+    sstream << "1" <<std::endl;
+    sstream << "last";
+
 
     //  Считываем размер блока
     //std::cout << argc << std::endl;

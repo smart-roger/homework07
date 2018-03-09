@@ -20,12 +20,15 @@ void TCommandStore::addCommand(const std::string& strCommand){
 }
 
 void TCommandStore::printCommands(std::ostream& out) const{
-    std::string output("bulk:");
 
-    std::for_each(_commands.begin(), _commands.end(),
+    if(!_commands.empty()){
+        std::string output("bulk:");
+
+        std::for_each(_commands.begin(), _commands.end(),
              [&output](auto command){output+= command+",";});
-    output.resize(output.length()-1);
-    out << output << std::endl;
+        output.resize(output.length()-1);
+        out << output << std::endl;
+    };
 }
 
 void TCommandStore::clear(){
@@ -34,4 +37,8 @@ void TCommandStore::clear(){
 
 size_t TCommandStore::size() const{
     return _commands.size();
+}
+
+bool TCommandStore::empty() const{
+    return _commands.empty();
 }

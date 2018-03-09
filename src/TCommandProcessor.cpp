@@ -12,7 +12,10 @@ TCommandProcessor::TCommandProcessor(size_t bulkSize):
 TCommandProcessor::~TCommandProcessor()
 {
     //Если окончен ввод - надо вывести накопленные команды
-    _store.printCommands();
+    if(!_store.empty()){
+        _store.printCommands();
+        _store.clear();
+    }
 }
 
 void TCommandProcessor::newCommand(const std::string& newCommand){
