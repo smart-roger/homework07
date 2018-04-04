@@ -14,6 +14,7 @@ TCommandProcessor::~TCommandProcessor()
     //Если окончен ввод - надо вывести накопленные команды
     if(!_store.empty()){
         _store.printCommands();
+        void logBlock();
         _store.clear();
     }
 }
@@ -25,6 +26,7 @@ void TCommandProcessor::newCommand(const std::string& newCommand){
 void TCommandProcessor::startBlock(){
     if(0==_blockCounter && 0<_store.size()){
         _store.printCommands();
+        logBlock();
         _store.clear();
     }
     ++_blockCounter;

@@ -12,6 +12,14 @@ int main(int argc, char** argv)
     sstream << "" <<std::endl;
     sstream << "0" <<std::endl;
     sstream << "1" <<std::endl;
+    sstream << "{" <<std::endl;
+    sstream << "2" <<std::endl;
+    sstream << "3" <<std::endl;
+    sstream << "}" <<std::endl;
+    sstream << "4" <<std::endl;
+    sstream << "{" <<std::endl;
+    sstream << "5" <<std::endl;
+    sstream << "}" <<std::endl;
     sstream << "last";
 
 

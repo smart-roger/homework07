@@ -19,13 +19,14 @@ class TCommandProcessor : public TObserver
         //  Добавление новой команды в хранилище
         void newCommand(const std::string& command);
 
-        void logBlock();
-
     protected:
 
         virtual void handleCommand(const std::string& command) override;
         virtual void startBlock()   override;
         virtual void finishBlock()  override;
+
+        void logBlock();
+
     private:
         //  Размер блока для вывода
         size_t  _bulkSize;
