@@ -6,7 +6,8 @@
 
 #include <vector>
 #include <string>
-
+#include <ctime>
+#include <fstream>
 /*!
     Обработчик для потока команд "нулевого уровня
 */
@@ -18,6 +19,8 @@ class TCommandProcessor : public TObserver
         //  Добавление новой команды в хранилище
         void newCommand(const std::string& command);
 
+        void logBlock();
+
     protected:
 
         virtual void handleCommand(const std::string& command) override;
@@ -28,6 +31,8 @@ class TCommandProcessor : public TObserver
         size_t  _bulkSize;
         //  Счётчик открытых блоков
         size_t  _blockCounter;
+
+        std::time_t     _timeStart;
         //  Хранилище для команд
         TCommandStore   _store;
 };

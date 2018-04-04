@@ -6,7 +6,7 @@ TCommandProcessor::TCommandProcessor(size_t bulkSize):
     _blockCounter(0),
     _store(bulkSize)
 {
-    
+
 }
 
 TCommandProcessor::~TCommandProcessor()
@@ -40,13 +40,21 @@ void TCommandProcessor::finishBlock(){
 void TCommandProcessor::handleCommand(const std::string& command){
     if(0==_blockCounter)
     {
+        if(_store.empty())
+            _timeStart = std::time(nullptr);
         newCommand(command);
         if(_bulkSize == _store.size()){
             _store.printCommands();
+            logBlock();
             _store.clear();
         }
     }
     //  Блоки обрабатываются в другом наблюдателе.
     //  else{}
 
+}
+
+void TCommandProcessor::logBlock(){
+    std::ofstream fileLog("bulk"+std::to_string(_timeStart)+".log");
+    _store.printCommands(fileLog);
 }
